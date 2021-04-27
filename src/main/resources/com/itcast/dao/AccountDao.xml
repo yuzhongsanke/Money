@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.itcast.dao.AccountDao">
+    <select id="findAllAccounts" resultType="account">
+        select * from accounts
+    </select>
+    <insert id="saveAccount" parameterType="account">
+        insert into accounts values (null,#{number},#{balance});
+    </insert>
+    <select id="findAccountByAid" resultType="account">
+        select * from accounts where aid=#{aid}
+    </select>
+    <update id="updateAccount" parameterType="account">
+        update accounts set number = #{number},balance = #{balance} where aid=#{aid}
+    </update>
+    <delete id="deleteAccountByAid">
+        delete FROM accounts where aid = #{aid};
+    </delete>
+
+</mapper>
